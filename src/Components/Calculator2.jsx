@@ -49,23 +49,7 @@ const Calculator2 = () => {
    ];
 
 
-//    const handleClick = (val) => {
 
-//     if(val === "="){
-//         try {
-//            setInput(eval(input).toString())
-//         }
-//         catch {
-//             setInput("Error");
-//         }
-
-//     }else if(val === "C"){
-//         setInput("");
-//     }else {
-//         setInput(input + val);
-//     }
-
-//    }
 
    const handleClick = (val) => {
     if (val === "=") {
