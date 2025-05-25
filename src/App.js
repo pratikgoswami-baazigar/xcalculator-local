@@ -1,5 +1,4 @@
-// import Calculator from "./Components/Calculator";
-// import Calculator from "./Components/trial";
+
 import Calculator2 from "./Components/Calculator2";
 function App() {
   return (
