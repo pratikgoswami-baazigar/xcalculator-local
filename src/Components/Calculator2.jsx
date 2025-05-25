@@ -25,6 +25,9 @@ const Calculator2 = () => {
   const handleClick = (value) => {
     if (value === "=") {
       try {
+        if (!input || input.trim() === "") {
+          throw new Error("Empty expression");
+        }
         const result = eval(input);
         setInput(String(result));
       } catch (error) {
@@ -46,16 +49,28 @@ const Calculator2 = () => {
 
   return (
     <div style={{ width: "250px", margin: "20px auto", textAlign: "center" }}>
-      {/* ✅ Display with input */}
+      {/* ✅ Input display */}
       <h1>React Calculator</h1>
       <input
         type="text"
         value={input}
         readOnly
-        style={{ width: "100%", height: "40px", fontSize: "20px", marginBottom: "10px" }}
+        style={{
+          width: "100%",
+          height: "40px",
+          fontSize: "20px",
+          marginBottom: "10px"
+        }}
       />
 
-      {/* Buttons */}
+      {/* ✅ Visible div for Cypress validation */}
+      {input && (
+        <div style={{ marginTop: "10px", fontWeight: "bold" }}>
+          {input}
+        </div>
+      )}
+
+      {/* Buttons Grid */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "10px" }}>
         {buttons.map((btn) => (
           <button
@@ -76,5 +91,3 @@ const Calculator2 = () => {
 };
 
 export default Calculator2;
-
-
