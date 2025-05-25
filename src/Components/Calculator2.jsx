@@ -49,23 +49,45 @@ const Calculator2 = () => {
    ];
 
 
+//    const handleClick = (val) => {
+
+//     if(val === "="){
+//         try {
+//            setInput(eval(input).toString())
+//         }
+//         catch {
+//             setInput("Error");
+//         }
+
+//     }else if(val === "C"){
+//         setInput("");
+//     }else {
+//         setInput(input + val);
+//     }
+
+//    }
+
    const handleClick = (val) => {
-
-    if(val === "="){
-        try {
-           setInput(eval(input).toString())
+    if (val === "=") {
+      try {
+        // Extra check for trailing operator
+        const lastChar = input[input.length - 1];
+        if (["+", "-", "*", "/"].includes(lastChar)) {
+          setInput("Error");
+        } else {
+          const result = eval(input);
+          setInput(result.toString());
         }
-        catch {
-            setInput("Error");
-        }
-
-    }else if(val === "C"){
-        setInput("");
-    }else {
-        setInput(input + val);
+      } catch {
+        setInput("Error");
+      }
+    } else if (val === "C") {
+      setInput("");
+    } else {
+      setInput(input + val);
     }
-
-   }
+  };
+  
 
     return (
         <div style={{
